@@ -1,12 +1,16 @@
 mod bsky_client;
+mod config;
 
 use bsky_client::client::Client;
 use bsky_client::types::Post;
+use config::{AppConfig, AppConfigVariableName};
 
 fn main() {
+    AppConfig::load().expect("Cannot initialize app config");
+
     let mut client = Client::new(
-        String::from("llcoolchris.dev"),
-        String::from(""),
+        AppConfig::get(AppConfigVariableName::BskyIdentifier),
+        AppConfig::get(AppConfigVariableName::BskyPassword),
     );
     let create_session_result = client.create_session();
 
