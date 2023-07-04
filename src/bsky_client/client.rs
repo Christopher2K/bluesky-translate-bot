@@ -6,7 +6,8 @@ use serde::Serialize;
 use super::types;
 
 const DEFAULT_USER_AGENT: &'static str = "ll_cool_bsky_client-v1.0.0_alpha";
-const DEFAULT_BSKY_SERVICE: &'static str = "https://bsky.social";
+pub const DEFAULT_BSKY_SERVICE: &'static str = "https://bsky.social";
+pub const DEFAULT_BSKY_STREAM_SERVICE: &'static str = "wss://bsky.social:443";
 
 const XRPC_COM_ATPROTO_SERVER_CREATE_SESSION: &'static str =
     "/xrpc/com.atproto.server.createSession";
